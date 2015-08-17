@@ -14,7 +14,8 @@ class <%= metadata.name %>::params {
       $service_name = '<%= metadata.name %>'
     }
     default: {
-      fail("${::operatingsystem} not supported")
+      # Optionally use more specific OS name ${::operatingsystem}
+      fail("The ${::osfamily} operating system is not supported by the <%= metadata.name %> module")
     }
   }
 }
